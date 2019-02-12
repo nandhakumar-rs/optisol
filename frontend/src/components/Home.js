@@ -12,6 +12,7 @@ state = {
 }
 getSearchTerm = (searchTerm)=>{
 debugger;
+this.setState({searchTerm:searchTerm})
     if(this.state.allProducts.length > 0 && searchTerm){
       this.setState({searchProducts:this.state.allProducts.filter((data)=>data.productCategory === searchTerm)
       })}else{
@@ -35,11 +36,18 @@ componentDidMount(){
 }
 
 viewAllProducts(){
-    if(this.state.searchProducts.length === 0){
+    if(this.state.searchTerm.length === 0){
+        console.log(this.state.searchTerm.length)
         return(<div className="card-columns m-3">
         <Products product = {this.state.allProducts} />
         </div>)
     }else{
+        if(this.state.searchProducts.length === 0){
+            return(
+                <div className="row m-3">
+                <div className="col-sm-10"><p> No Result Found</p></div>
+                </div>)
+        }
         return(<div className="card-columns m-3">
         <Products product = {this.state.searchProducts} />
         </div>)
@@ -52,11 +60,11 @@ return(
     <div>
 <div className="container"><SearchBar search={this.getSearchTerm} />
 </div>
-<div className="row"><div className="col-sm-10"><p className="m-3"> Available Categories are : Vegitable, Furniture, Fruit</p></div>
+<div className="row"><div className="col-sm-10"><p className="m-3"> Available Categories are : Vegetables, Furniture, Fruits</p></div>
 <div className="col-sm-2"><NavLink className="btn btn-success" to="/add">Add Product</NavLink>
 </div>
 </div>
-<div>{this.searchFor()}</div>
+<div className="m-3">{this.searchFor()}</div>
 {this.viewAllProducts()}
 </div>)
 else
