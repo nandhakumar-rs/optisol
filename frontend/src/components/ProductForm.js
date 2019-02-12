@@ -84,8 +84,8 @@ if(this.state.reDirect){
     <div className="col-sm-10">
 <select required className="form-control" id="category" value={this.state.productCategory}  onChange={(e)=>{this.setState({productCategory:e.target.value})}}>
       <option value="Furniture" selected>Furniture</option>
-      <option value="Vegetables">Vegetable</option>
-      <option value="Fruits">Fruit</option>
+      <option value="Vegetables">Vegetables</option>
+      <option value="Fruits">Fruits</option>
     </select>
 </div>
 </div>
