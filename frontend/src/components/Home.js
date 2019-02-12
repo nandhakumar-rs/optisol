@@ -60,7 +60,14 @@ return(
 {this.viewAllProducts()}
 </div>)
 else
-return(<div>No products</div>)
+return(<div>
+    <div className="row">
+    <div className="col-sm-10"><p className="m-3"> No Products</p></div>
+    <div className="col-sm-2">
+    <NavLink className="btn btn-success" to="/add">Add Product</NavLink>
+    </div>
+    </div>
+    </div>)
 }
 
 
