@@ -14,7 +14,7 @@ getSearchTerm = (searchTerm)=>{
 debugger;
 this.setState({searchTerm:searchTerm})
     if(this.state.allProducts.length > 0 && searchTerm){
-      this.setState({searchProducts:this.state.allProducts.filter((data)=>data.productCategory === searchTerm)
+      this.setState({searchProducts:this.state.allProducts.filter((data)=>data.productCategory.toLowerCase() === searchTerm.toLowerCase())
       })}else{
           this.setState({searchProducts:[]})
       }
